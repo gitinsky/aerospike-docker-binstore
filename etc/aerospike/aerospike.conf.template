@@ -58,3 +58,13 @@ namespace storefast {
     data-in-memory true
   }
 }
+namespace storetest {
+  replication-factor 3
+  memory-size <%=os.getenv("MEM_USE_FAST")%>K
+  default-ttl 0
+  storage-engine device {
+    file /storage/data/big.dat
+    filesize 3T
+    data-in-memory false
+  }
+}
