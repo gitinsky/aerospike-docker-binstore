@@ -63,7 +63,7 @@ namespace storetest {
   memory-size <%=os.getenv("MEM_USE_FAST")%>K
   default-ttl 0
   storage-engine device {
-    file /storage/data/big.dat
+    file /storage/data/test.dat
     filesize 3T
     data-in-memory false
   }
