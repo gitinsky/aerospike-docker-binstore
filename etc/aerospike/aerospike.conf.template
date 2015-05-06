@@ -29,7 +29,7 @@ network {
   heartbeat {
     mode multicast
     address 239.1.99.2
-    port <%=os.getenv("BASE_PORT")+918%>
+    port 9918
     interface-address <%=os.getenv("NODE_INT_ADDR")%> interval 150
     timeout 10
   }
