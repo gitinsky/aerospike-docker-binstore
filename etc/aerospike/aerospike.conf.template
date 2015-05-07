@@ -46,8 +46,18 @@ namespace storebig {
   high-water-memory-pct 98
   stop-writes-pct       95
   storage-engine device {
-    file /storage/data/big.dat
-    filesize 3T
+    file /storage/data/big01.dat
+    filesize 1T
+    data-in-memory false
+  }
+  storage-engine device {
+    file /storage/data/big02.dat
+    filesize 1T
+    data-in-memory false
+  }
+  storage-engine device {
+    file /storage/data/big03.dat
+    filesize 1T
     data-in-memory false
   }
 }
@@ -73,7 +83,7 @@ namespace storetest {
   stop-writes-pct       95
   storage-engine device {
     file /storage/data/test.dat
-    filesize 3T
+    filesize 1T
     data-in-memory false
   }
 }
