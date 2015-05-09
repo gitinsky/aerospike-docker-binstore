@@ -27,10 +27,12 @@ network {
     port <%=os.getenv("BASE_PORT")+1%>
   }
   heartbeat {
-    mode multicast
-    address 239.1.99.2
-    port 9918
-    interface-address <%=os.getenv("NODE_INT_ADDR")%> interval 150
+    mode mesh
+    address <%=os.getenv("NODE_EXT_ADDR")%>
+    port <%=os.getenv("BASE_PORT")+2%>
+    <%for peerAddr in os.getenv("CLUSTER_ADDRS"):gmatch("[^,]+") do%>
+    mesh-seed-address-port <%=peerAddr%> 3002
+    <%end%>
     timeout 10
   }
   info {
@@ -69,8 +71,8 @@ namespace storefast {
   high-water-memory-pct 98
   stop-writes-pct       95
   storage-engine device {
-    file /storage/data/fast.dat
-    filesize <%=os.getenv("MEM_USE_FAST")%>K
+    file /storage/data/fast01.dat
+    filesize 100G
     data-in-memory true
   }
 }
@@ -82,8 +84,8 @@ namespace storetest {
   high-water-memory-pct 98
   stop-writes-pct       95
   storage-engine device {
-    file /storage/data/test.dat
-    filesize 1T
+    file /storage/data/test01.dat
+    filesize 100G
     data-in-memory false
   }
 }
